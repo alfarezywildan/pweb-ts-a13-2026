@@ -1,4 +1,4 @@
-# pweb-js-a13-2026
+# pweb-ts-a13-2026
 ## Anggota
 | Nama | NRP |
 | :--- | :--- |

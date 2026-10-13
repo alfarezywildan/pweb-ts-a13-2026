@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ambil Antrian - Rumah Sakit</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dashboard-page">
+
+  <!-- Navbar -->
+  <nav class="main-navbar">
+    <div class="nav-container">
+
+      <div class="nav-left">
+        <span class="nav-brand">Antrian Tiket</span>
+
+        <ul class="nav-links">
+          <li>
+            <a href="index.html" class="nav-link">Beranda</a>
+          </li>
+
+          <li>
+            <a href="layar.html" class="nav-link">Layar</a>
+          </li>
+
+          <li>
+            <a href="ambil-antrian.html" class="nav-link active">
+              Kiosk
+            </a>
+          </li>
+
+          <li>
+            <a href="operator.html" class="nav-link">Operator</a>
+          </li>
+
+          <li>
+            <a href="index.html" class="nav-link">Dashboard</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <!-- Konten utama -->
+  <main class="dashboard-container">
+
+    <!-- Header -->
+    <header class="page-header">
+      <div class="header-left">
+
+        <h1 class="header-title">
+          Ambil Nomor Antrian
+        </h1>
+
+        <p class="header-subtitle">
+          Pilih layanan dan tingkat prioritas untuk mendapatkan nomor antrian.
+        </p>
+
+      </div>
+    </header>
+
+
+    <!-- Form ambil antrian -->
+    <section class="card">
+
+      <h2 class="card-title">
+        Pilih Antrian
+      </h2>
+
+      <form id="formAmbilAntrian" class="form-terbit-tiket">
+
+        <!-- Pilihan layanan -->
+        <div class="form-field field-select-jenis">
+
+          <label for="layanan">
+            Jenis antrian
+          </label>
+
+          <select
+            id="layanan"
+            name="layanan"
+            required
+          >
+            <option value="">
+              Pilih jenis antrian
+            </option>
+
+            <!--
+              Pilihan layanan akan dibuat secara dinamis
+              oleh ambil-antrian.ts dari localStorage.
+            -->
+          </select>
+
+        </div>
+
+
+        <!-- Pilihan prioritas -->
+        <div class="form-field field-select-prioritas">
+
+          <label for="prioritas">
+            Prioritas
+          </label>
+
+          <select
+            id="prioritas"
+            name="prioritas"
+          >
+            <option value="normal">
+              Normal
+            </option>
+
+            <option value="lansia">
+              Lansia
+            </option>
+
+            <option value="disabilitas">
+              Disabilitas
+            </option>
+
+            <option value="vip">
+              VIP
+            </option>
+          </select>
+
+        </div>
+
+
+        <!-- Tombol ambil nomor -->
+        <button
+          id="ambilNomorBtn"
+          type="submit"
+          class="btn-dark"
+        >
+          Ambil Nomor
+        </button>
+
+      </form>
+
+
+      <!-- Pesan error / sukses -->
+      <div
+        id="alertAmbil"
+        class="alert-box hidden"
+        role="alert"
+      ></div>
+
+    </section>
+
+
+    <!-- Hasil tiket -->
+    <section
+      id="hasilTiket"
+      class="card hidden"
+      aria-live="polite"
+    >
+
+      <h2 class="card-title">
+        Nomor Antrian Anda
+      </h2>
+
+
+      <div class="tiket-row">
+
+        <div class="tiket-left">
+
+          <strong
+            id="nomorTiketHasil"
+            class="tiket-nomor"
+          >
+            -
+          </strong>
+
+          <span
+            id="prioritasTiketHasil"
+            class="badge-prioritas prioritas-normal"
+          >
+            Normal
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="jenis-item">
+
+        <div class="jenis-info">
+
+          <span class="jenis-count">
+            Layanan
+          </span>
+
+          <strong
+            id="layananTiketHasil"
+            class="jenis-name"
+          >
+            -
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="jenis-item">
+
+        <div class="jenis-info">
+
+          <span class="jenis-count">
+            Waktu pengambilan
+          </span>
+
+          <strong
+            id="waktuTiketHasil"
+            class="jenis-name"
+          >
+            -
+          </strong>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- Hasil compile ambil-antrian.ts -->
+  <script
+    src="dist/ambil-antrian.js"
+    defer
+  ></script>
+
+</body>
+</html>

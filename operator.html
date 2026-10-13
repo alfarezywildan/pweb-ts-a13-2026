@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Panel Operator - Antrian Rumah Sakit</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dashboard-page">
+
+  <!-- Navbar -->
+  <nav class="main-navbar">
+    <div class="nav-container">
+
+      <div class="nav-left">
+
+        <span class="nav-brand">
+          Antrian Tiket
+        </span>
+
+        <ul class="nav-links">
+
+          <li>
+            <a
+              href="index.html"
+              class="nav-link"
+            >
+              Beranda
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="layar.html"
+              class="nav-link"
+            >
+              Layar
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="ambil-antrian.html"
+              class="nav-link"
+            >
+              Kiosk
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="operator.html"
+              class="nav-link active"
+              aria-current="page"
+            >
+              Operator
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="index.html"
+              class="nav-link"
+            >
+              Dashboard
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+
+      <!--
+        Akan diisi oleh operator.ts:
+        - Nama user
+        - Role
+      -->
+      <div
+        class="nav-right"
+        id="navUserInfo"
+      ></div>
+
+    </div>
+  </nav>
+
+
+  <!-- Konten utama -->
+  <main class="dashboard-container">
+
+    <!-- Header -->
+    <header class="page-header">
+
+      <div class="header-left">
+
+        <h1 class="header-title">
+          Panel Operator
+        </h1>
+
+        <p class="header-subtitle">
+          Kelola pemanggilan antrian untuk setiap layanan.
+        </p>
+
+      </div>
+
+
+      <div class="header-actions">
+
+        <button
+          type="button"
+          id="logoutBtn"
+          class="btn-outline-secondary"
+        >
+          Keluar
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <!-- Pesan sukses / error -->
+    <div
+      id="alertOperator"
+      class="alert-box hidden"
+      role="alert"
+      aria-live="polite"
+    ></div>
+
+
+    <!--
+      Semua panel layanan akan dibuat secara dinamis.
+
+      Contoh hasil render:
+
+      +-----------------------------------+
+      | UMUM-1                    3 menunggu
+      |
+      | SEDANG DIPANGGIL
+      | A-001
+      |
+      | BERIKUTNYA
+      | A-003
+      | VIP
+      |
+      | [Panggil Berikutnya]
+      | [Lewati] [Selesai]
+      +-----------------------------------+
+    -->
+    <div
+      id="operatorPanels"
+      class="dashboard-grid"
+      aria-live="polite"
+    >
+
+      <!--
+        Isi dibuat oleh operator.ts
+        berdasarkan:
+        localStorage "jenisAntrian"
+        localStorage "antrianTiket"
+      -->
+
+    </div>
+
+
+    <!-- Ditampilkan jika belum ada jenis antrian -->
+    <section
+      id="operatorEmptyState"
+      class="card hidden"
+    >
+
+      <h2 class="card-title">
+        Belum Ada Antrian
+      </h2>
+
+      <p>
+        Belum ada jenis antrian yang dapat dikelola oleh operator.
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <!--
+    operator.ts akan dikompilasi menjadi:
+    dist/operator.js
+  -->
+  <script
+    src="dist/operator.js"
+    defer
+  ></script>
+
+</body>
+</html>

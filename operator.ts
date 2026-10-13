@@ -1038,10 +1038,13 @@
 
 
   // =========================================================================
-  // 21. INITIAL RENDER
+  // 21. INITIAL RENDER & POLLING OTOMATIS
   // =========================================================================
 
   renderNavbar();
 
   renderOperatorPanels();
+
+  // Polling berkala setiap 2 detik agar panel operator selalu ter-update otomatis
+  setInterval(renderOperatorPanels, 2000);
 })();

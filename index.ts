@@ -331,6 +331,7 @@ interface TiketAntrian {
     const btnTerbit = document.getElementById('btnTerbitkanTiket') as HTMLButtonElement | null;
     if (!select) return;
 
+    const savedValue = select.value;
     const jenisList = getJenisAntrian();
     // Filter hanya jenis yang berstatus 'active'
     const jenisAktif = jenisList.filter((j) => j.status === 'active');
@@ -358,6 +359,10 @@ interface TiketAntrian {
       opt.textContent = `${item.nama} (${item.kode})`;
       select.appendChild(opt);
     });
+
+    if (savedValue && jenisAktif.some((j) => j.kode === savedValue)) {
+      select.value = savedValue;
+    }
   }
 
   // =========================================================================
@@ -616,9 +621,27 @@ interface TiketAntrian {
   }
 
   // =========================================================================
-  // 11. INITIAL RENDER
+  // 11. INITIAL RENDER & REAL-TIME AUTO-UPDATE
   // =========================================================================
   renderNavbar();
   renderJenisAntrian();
   renderMonitorTiket();
+
+  function refreshDashboard(): void {
+    renderJenisAntrian();
+    renderMonitorTiket();
+  }
+
+  // 1. Polling berkala setiap 2 detik
+  setInterval(refreshDashboard, 2000);
+
+  // 2. Sinkronisasi instan antar-tab saat localStorage berubah di tab lain
+  window.addEventListener('storage', (e: StorageEvent) => {
+    if (e.key === 'antrianTiket' || e.key === 'jenisAntrian' || e.key === 'authToken') {
+      refreshDashboard();
+    }
+  });
+
+  // 3. Sinkronisasi saat tab kembali aktif / difokuskan
+  window.addEventListener('focus', refreshDashboard);
 })();

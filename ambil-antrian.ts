@@ -636,8 +636,11 @@
 
 
   // =========================================================================
-  // 15. INITIAL RENDER
+  // 15. INITIAL RENDER & POLLING OTOMATIS
   // =========================================================================
 
   renderPilihanLayanan();
+
+  // Polling berkala setiap 2 detik agar pilihan layanan selalu up-to-date tanpa reload manual
+  setInterval(renderPilihanLayanan, 2000);
 })();

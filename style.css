@@ -1,0 +1,1125 @@
+/* style.css – Desain UI Murni Native (Tanpa Framework)
+   Sesuai Spesifikasi Soal Praktikum Modul 3 & Mockup Image 1 & 2 */
+
+/* --- Reset & Variabel Global --- */
+:root {
+  --primary-color: #0f172a;
+  --primary-hover: #1e293b;
+  --secondary-color: #3b82f6;
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --border-color: #e2e8f0;
+  --border-focus: #3b82f6;
+  --danger-color: #dc2626;
+  --danger-bg: #fee2e2;
+  --danger-border: #fca5a5;
+  --success-color: #16a34a;
+  --success-bg: #dcfce7;
+  --warning-color: #d97706;
+  --warning-bg: #fef3c7;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --shadow-card: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-page);
+  color: var(--text-dark);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* =========================================================================
+   1. HALAMAN LOGIN (Sesuai image1.png)
+   ========================================================================= */
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+}
+
+.login-wrapper {
+  width: 100%;
+  max-width: 440px;
+}
+
+.login-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+  border: 1px solid var(--border-color);
+}
+
+.login-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #0284c7;
+  margin-bottom: 0.6rem;
+}
+
+.login-subtitle {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-bottom: 1.8rem;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.35rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  background-color: #ffffff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.btn-login {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #f59e0b;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+  margin-top: 0.5rem;
+}
+
+.btn-login:hover:not(:disabled) {
+  background-color: #d97706;
+}
+
+.btn-login:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Loading state button saat login */
+.btn-login.btn-loading {
+  background-color: #f59e0b;
+  opacity: 0.85;
+}
+
+.login-footer {
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #f1f5f9;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.login-footer a {
+  color: #0284c7;
+  text-decoration: underline;
+}
+
+.login-footer a:hover {
+  color: #0369a1;
+}
+
+/* =========================================================================
+   2. NAVBAR UTAMA (Sesuai image2.png)
+   ========================================================================= */
+.main-navbar {
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.nav-brand {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.02em;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  padding: 0.25rem 0;
+  transition: color 0.15s ease;
+}
+
+.nav-link:hover {
+  color: var(--text-dark);
+}
+
+.nav-link.active {
+  color: var(--text-dark);
+  font-weight: 700;
+  border-bottom: 2px solid var(--text-dark);
+}
+
+.nav-right .user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-greeting {
+  font-size: 0.88rem;
+  color: var(--text-dark);
+}
+
+.badge-role {
+  background-color: #e0e7ff;
+  color: #4338ca;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.btn-logout-nav {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  color: var(--text-muted);
+  padding: 0.3rem 0.75rem;
+  font-size: 0.82rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-logout-nav:hover {
+  background-color: #f1f5f9;
+  color: var(--text-dark);
+}
+
+/* =========================================================================
+   3. DASHBOARD ADMIN CONTAINER & HEADER (Sesuai image2.png)
+   ========================================================================= */
+.dashboard-container {
+  max-width: 1200px;
+  margin: 1.5rem auto 3rem;
+  padding: 0 1.5rem;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.02em;
+}
+
+.header-subtitle {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.btn-outline-danger {
+  background: transparent;
+  border: 1px solid var(--danger-border);
+  color: var(--danger-color);
+  padding: 0.45rem 0.95rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-outline-danger:hover {
+  background-color: var(--danger-bg);
+}
+
+.btn-outline-secondary {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  color: var(--text-dark);
+  padding: 0.45rem 0.95rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #f1f5f9;
+}
+
+/* =========================================================================
+   4. DASHBOARD 2-COLUMN GRID & KARTU
+   ========================================================================= */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 880px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1.25rem;
+}
+
+/* Form Styles */
+.form-tambah-jenis,
+.form-terbit-tiket {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+}
+
+.form-field input,
+.form-field select {
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  background-color: #ffffff;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  outline: none;
+  border-color: var(--border-focus);
+}
+
+.field-kode {
+  width: 70px;
+}
+
+.field-kode input {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+}
+
+.field-nama {
+  flex: 1;
+  min-width: 140px;
+}
+
+.field-select-jenis {
+  flex: 1;
+  min-width: 140px;
+}
+
+.field-select-prioritas {
+  width: 120px;
+}
+
+.btn-dark {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  height: 38px;
+}
+
+.btn-dark:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-dark:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =========================================================================
+   5. DAFTAR JENIS ANTRIAN (KARTU KIRI)
+   ========================================================================= */
+.jenis-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.jenis-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid #f1f5f9;
+  transition: opacity 0.15s ease;
+}
+
+.jenis-item:last-child {
+  border-bottom: none;
+}
+
+.jenis-item.is-inactive {
+  opacity: 0.6;
+}
+
+.jenis-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.jenis-header-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.jenis-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.status-badge-inactive {
+  font-size: 0.7rem;
+  background-color: var(--danger-bg);
+  color: var(--danger-color);
+  padding: 0.1rem 0.4rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+}
+
+.jenis-count {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+.jenis-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-toggle-status {
+  background: transparent;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.8rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-weight: 500;
+}
+
+.btn-nonaktifkan {
+  border: 1px solid #93c5fd;
+  color: #2563eb;
+}
+
+.btn-nonaktifkan:hover {
+  background-color: #eff6ff;
+}
+
+.btn-aktifkan {
+  border: 1px solid #86efac;
+  color: var(--success-color);
+}
+
+.btn-aktifkan:hover {
+  background-color: #f0fdf4;
+}
+
+.btn-hapus-jenis {
+  background: transparent;
+  border: 1px solid var(--danger-border);
+  color: var(--danger-color);
+  padding: 0.35rem 0.7rem;
+  font-size: 0.8rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-hapus-jenis:hover {
+  background-color: var(--danger-bg);
+}
+
+/* =========================================================================
+   6. DAFTAR TIKET ANTRIAN (KARTU KANAN)
+   ========================================================================= */
+.antrian-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.tiket-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.tiket-group-header {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.tiket-rows-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.tiket-empty-row {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  font-style: italic;
+  padding: 0.3rem 0;
+}
+
+.tiket-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.65rem;
+  background-color: #f8fafc;
+  border-radius: var(--radius-md);
+  border: 1px solid #f1f5f9;
+}
+
+.tiket-row.is-called {
+  background-color: #f0fdf4;
+  border-color: #bbf7d0;
+}
+
+.tiket-left {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.tiket-nomor {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  min-width: 54px;
+}
+
+.badge-prioritas {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.18rem 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  color: var(--text-dark);
+}
+
+.badge-prioritas.prioritas-normal {
+  border-color: #cbd5e1;
+  color: #475569;
+}
+
+.badge-prioritas.prioritas-lansia {
+  background-color: #fff7ed;
+  border-color: #fed7aa;
+  color: #c2410c;
+}
+
+.badge-prioritas.prioritas-disabilitas {
+  background-color: #faf5ff;
+  border-color: #e9d5ff;
+  color: #7e22ce;
+}
+
+.badge-prioritas.prioritas-vip {
+  background-color: #fefce8;
+  border-color: #fef08a;
+  color: #a16207;
+}
+
+.badge-status {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.badge-status.status-dipanggil {
+  color: var(--success-color);
+  font-weight: 600;
+}
+
+.badge-status.status-menunggu {
+  color: var(--text-muted);
+}
+
+.badge-status.status-dilewati {
+  color: var(--danger-color);
+}
+
+.tiket-right {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-action-selesai {
+  background: transparent;
+  border: none;
+  color: #0284c7;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+}
+
+.btn-action-selesai:hover {
+  text-decoration: underline;
+}
+
+.btn-action-panggil {
+  background: transparent;
+  border: none;
+  color: var(--text-dark);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+}
+
+.btn-action-panggil:hover {
+  color: var(--success-color);
+  text-decoration: underline;
+}
+
+.btn-action-lewati {
+  background: transparent;
+  border: none;
+  color: var(--danger-color);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+}
+
+.btn-action-lewati:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================================
+   7. ALERTS & FEEDBACK
+   ========================================================================= */
+.alert-box {
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.alert-box.alert-error {
+  background-color: var(--danger-bg);
+  border: 1px solid var(--danger-border);
+  color: var(--danger-color);
+}
+
+.alert-box.alert-success {
+  background-color: var(--success-bg);
+  border: 1px solid #86efac;
+  color: var(--success-color);
+}
+
+.error-box {
+  background-color: var(--danger-bg);
+  border: 1px solid var(--danger-border);
+  color: var(--danger-color);
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* =========================================================================
+   8. HALAMAN LAYAR ANTRIAN (Sesuai image4.png)
+   ========================================================================= */
+.layar-page {
+  background-color: #f8fafc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.layar-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.25rem 2rem;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+}
+
+.layar-header-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.layar-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.layar-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.02em;
+}
+
+.layar-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+  font-weight: 500;
+}
+
+.layar-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.btn-pill-active {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.1);
+}
+
+.btn-pill-link {
+  background-color: transparent;
+  color: var(--text-dark);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.btn-pill-link:hover {
+  background-color: #f1f5f9;
+  color: var(--primary-color);
+}
+
+.btn-pill-toggle {
+  background-color: transparent;
+  border: 1px solid #cbd5e1;
+  color: var(--text-dark);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.15s ease;
+}
+
+.btn-pill-toggle:hover {
+  background-color: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.btn-pill-toggle.is-muted {
+  opacity: 0.7;
+  border-style: dashed;
+}
+
+.btn-pill-toggle.btn-fullscreen-active {
+  background-color: #f1f5f9;
+  border-color: var(--primary-color);
+  font-weight: 600;
+}
+
+.user-session-wrapper {
+  display: inline-flex;
+  align-items: center;
+}
+
+.user-session-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-left: 0.5rem;
+  border-left: 1px solid #e2e8f0;
+}
+
+.user-name-label {
+  font-size: 0.82rem;
+  color: var(--text-dark);
+}
+
+.btn-pill-logout {
+  background: transparent;
+  border: 1px solid var(--danger-border);
+  color: var(--danger-color);
+  padding: 0.35rem 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-pill-logout:hover {
+  background-color: var(--danger-bg);
+}
+
+/* Layar Main Grid */
+.layar-main {
+  flex: 1;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.layar-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 1200px) {
+  .layar-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 880px) {
+  .layar-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .layar-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Layar Card Design */
+.layar-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.6rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 380px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.layar-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+/* Animasi pulse saat ada tiket baru dipanggil */
+.layar-card.is-calling {
+  border-color: #f59e0b;
+  animation: pulseCalling 1.8s ease-in-out 3;
+}
+
+@keyframes pulseCalling {
+  0% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.45);
+    border-color: #f59e0b;
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(245, 158, 11, 0);
+    border-color: #d97706;
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+    border-color: var(--border-color);
+  }
+}
+
+.layar-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.layar-card-nama {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.layar-card-kode {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+}
+
+.layar-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 1;
+  padding: 2rem 0;
+}
+
+.badge-dipanggil {
+  color: #ea580c;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.65rem;
+  text-transform: uppercase;
+}
+
+.badge-dipanggil-dot {
+  font-size: 0.7rem;
+  color: #ea580c;
+}
+
+.nomor-dipanggil {
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: var(--text-dark);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.4rem;
+}
+
+.prioritas-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  color: var(--text-muted);
+}
+
+.prioritas-badge.prioritas-normal {
+  border-color: #cbd5e1;
+  color: #475569;
+}
+
+.prioritas-badge.prioritas-lansia {
+  background-color: #fff7ed;
+  border-color: #fed7aa;
+  color: #c2410c;
+}
+
+.prioritas-badge.prioritas-disabilitas {
+  background-color: #faf5ff;
+  border-color: #e9d5ff;
+  color: #7e22ce;
+}
+
+.prioritas-badge.prioritas-vip {
+  background-color: #fefce8;
+  border-color: #fef08a;
+  color: #a16207;
+}
+
+.empty-dipanggil-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-dipanggil-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.4rem;
+}
+
+.empty-dipanggil-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  max-width: 210px;
+}
+
+.layar-card-footer {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 0.85rem;
+  width: 100%;
+  text-align: center;
+}
+
+.tiket-menunggu-info {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.layar-empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--text-muted);
+}
+
+.layar-empty-state h2 {
+  font-size: 1.3rem;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+/* Mode Fullscreen adjustment */
+:fullscreen .layar-page {
+  background-color: #f8fafc;
+  overflow-y: auto;
+}
+
+:fullscreen .layar-main {
+  padding: 1.5rem 2rem;
+}

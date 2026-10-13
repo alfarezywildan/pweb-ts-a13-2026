@@ -9,12 +9,17 @@
 // 5. Auto Redirect: Admin/Moderator diarahkan ke index.html (Dashboard Admin).
 
 (() => {
-  // Jika pengguna sudah login sebagai admin/moderator, langsung arahkan ke Dashboard
+  // Jika pengguna sudah login, langsung arahkan sesuai role masing-masing
   const existingRole = localStorage.getItem('authRole');
   const existingToken = localStorage.getItem('authToken');
-  if (existingToken && (existingRole === 'admin' || existingRole === 'moderator')) {
-    window.location.href = 'index.html';
-    return;
+  if (existingToken) {
+    if (existingRole === 'admin' || existingRole === 'moderator') {
+      window.location.href = 'index.html';
+      return;
+    } else {
+      window.location.href = 'layar.html';
+      return;
+    }
   }
 
   const form = document.getElementById('loginForm') as HTMLFormElement | null;
@@ -121,18 +126,19 @@
         userRole = 'user';
       }
 
-      // 2. Validasi Role: Hanya Admin atau Moderator yang diperbolehkan masuk Dashboard
-      if (userRole !== 'admin' && userRole !== 'moderator') {
-        throw new Error(`Akses ditolak: Akun Anda memiliki role '${userRole}'. Hanya Admin atau Moderator yang dapat mengakses Dashboard.`);
-      }
-
-      // 3. Simpan sesi otentikasi ke Local Storage
+      // 2. Simpan sesi otentikasi ke Local Storage
       localStorage.setItem('authToken', token);
       localStorage.setItem('authRole', userRole);
       localStorage.setItem('authFirstName', data.firstName || username);
 
-      // 4. Auto-redirect ke Dashboard Admin (index.html)
-      window.location.href = 'index.html';
+      // 3. Auto-redirect Berdasarkan Role (Sesuai Catatan Revisi & Spesifikasi)
+      // - Admin / Moderator: diarahkan ke Dashboard Admin (index.html)
+      // - User biasa: diarahkan ke Layar Antrian (layar.html)
+      if (userRole === 'admin' || userRole === 'moderator') {
+        window.location.href = 'index.html';
+      } else {
+        window.location.href = 'layar.html';
+      }
 
     } catch (err: any) {
       // Tampilkan error visual

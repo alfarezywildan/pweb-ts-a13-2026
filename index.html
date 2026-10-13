@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Admin - Antrian Rumah Sakit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-page">
+  <!-- Navbar Utama Sesuai Mockup dan Spesifikasi -->
+  <nav class="main-navbar">
+    <div class="nav-container">
+      <div class="nav-left">
+        <span class="nav-brand">Antrian Tiket</span>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Beranda</a></li>
+          <li><a href="ambil-antrian.html" class="nav-link">Kiosk</a></li>
+          <li><a href="operator.html" class="nav-link">Operator</a></li>
+          <li><a href="index.html" class="nav-link active">Dashboard</a></li>
+        </ul>
+      </div>
+      <div class="nav-right" id="navUserInfo">
+        <!-- Akan diisi oleh index.ts: Nama, Role, tombol Keluar -->
+      </div>
+    </div>
+  </nav>
+
+  <!-- Konten Utama Dashboard -->
+  <main class="dashboard-container">
+    <!-- Header Dashboard -->
+    <header class="page-header">
+      <div class="header-left">
+        <h1 class="header-title">Dashboard Admin</h1>
+        <p class="header-subtitle">Reset setiap hari agar penomoran antrian mulai dari awal.</p>
+      </div>
+      <div class="header-actions">
+        <button type="button" id="resetAntrianBtn" class="btn-outline-danger">Reset Antrian</button>
+        <button type="button" id="logoutBtn" class="btn-outline-secondary">Keluar</button>
+      </div>
+    </header>
+
+    <!-- Grid 2 Kolom: Jenis Antrian & Terbitkan Tiket -->
+    <div class="dashboard-grid">
+      <!-- Kolom 1: Manajemen Jenis Antrian -->
+      <section class="card card-jenis">
+        <h2 class="card-title">Jenis antrian</h2>
+
+        <!-- Form Tambah Jenis Antrian Baru -->
+        <form id="formKode" class="form-tambah-jenis" autocomplete="off">
+          <div class="form-field field-kode">
+            <label for="kodeBaru">Kode</label>
+            <input 
+              type="text" 
+              id="kodeBaru" 
+              name="kodeBaru" 
+              maxlength="1" 
+              placeholder="C" 
+              required
+            >
+          </div>
+          <div class="form-field field-nama">
+            <label for="namaBaru">Nama</label>
+            <input 
+              type="text" 
+              id="namaBaru" 
+              name="namaBaru" 
+              placeholder="Contoh: Farmasi" 
+              required
+            >
+          </div>
+          <button type="submit" id="btnTambahJenis" class="btn-dark">Tambah</button>
+        </form>
+
+        <!-- Pesan Alert / Feedback Form Jenis -->
+        <div id="alertJenis" class="alert-box hidden" role="alert"></div>
+
+        <!-- Daftar / Tabel Jenis Antrian -->
+        <div class="jenis-list" id="daftarJenis">
+          <!-- Render dinamis oleh index.ts -->
+        </div>
+      </section>
+
+      <!-- Kolom 2: Penerbitan Tiket Manual & Monitor Antrian -->
+      <section class="card card-tiket">
+        <h2 class="card-title">Terbitkan tiket</h2>
+
+        <!-- Form Penerbitan Tiket Manual -->
+        <form id="formTiket" class="form-terbit-tiket">
+          <div class="form-field field-select-jenis">
+            <label for="jenisTiket">Jenis antrian</label>
+            <select id="jenisTiket" name="jenisTiket" required>
+              <option value="">Pilih jenis antrian</option>
+            </select>
+          </div>
+          <div class="form-field field-select-prioritas">
+            <label for="prioritasTiket">Prioritas</label>
+            <select id="prioritasTiket" name="prioritasTiket">
+              <option value="normal">Normal</option>
+              <option value="lansia">Lansia</option>
+              <option value="disabilitas">Disabilitas</option>
+              <option value="vip">VIP</option>
+            </select>
+          </div>
+          <button type="submit" id="btnTerbitkanTiket" class="btn-dark">Terbitkan</button>
+        </form>
+
+        <!-- Pesan Alert / Feedback Form Tiket -->
+        <div id="alertTiket" class="alert-box hidden" role="alert"></div>
+
+        <!-- Daftar Antrian Aktif per Layanan -->
+        <div class="antrian-list-container" id="daftarAntrianTiket">
+          <!-- Render dinamis oleh index.ts -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="dist/index.js" defer></script>
+</body>
+</html>

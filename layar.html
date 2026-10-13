@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layar Antrian - Rumah Sakit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="layar-page">
+  <!-- Elemen audio untuk bunyi lonceng panggilan antrian (tingtong) -->
+  <audio id="chimeAudio" src="tingtong.mp3" preload="auto"></audio>
+
+  <!-- Header Layar Antrian (Sesuai Mockup image4.png) -->
+  <header class="layar-header">
+    <div class="layar-header-container">
+      <div class="layar-title-group">
+        <h1 class="layar-title">Nomor sedang dipanggil</h1>
+        <p class="layar-subtitle">Diperbarui <span id="lastUpdated">--.--.--</span></p>
+      </div>
+
+      <nav class="layar-controls" aria-label="Navigasi Layar">
+        <a href="layar.html" class="btn-pill-active" aria-current="page">Layar Antrian</a>
+        <a href="ambil-antrian.html" class="btn-pill-link">Ambil Nomor</a>
+        
+        <!-- Fitur Nilai Tambahan: Tombol Suara Panggilan -->
+        <button type="button" id="audioToggleBtn" class="btn-pill-toggle" title="Aktifkan/Nonaktifkan Suara Panggilan">
+          <span id="audioIcon">🔊</span>
+          <span id="audioLabel">Suara Aktif</span>
+        </button>
+
+        <!-- Fitur Layar Penuh: Fullscreen API Toggle -->
+        <button type="button" id="fullscreenBtn" class="btn-pill-toggle" title="Toggle Mode Layar Penuh">
+          Layar Penuh
+        </button>
+
+        <!-- Area Sesi Pengguna: Nama, Dashboard Link (Admin), & Tombol Keluar -->
+        <div id="userSessionArea" class="user-session-wrapper"></div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Konten Utama: Grid Kartu Layar Antrian -->
+  <main class="layar-main">
+    <div class="layar-grid" id="layarGrid" aria-live="polite">
+      <!-- Di-render secara dinamis dan real-time oleh layar.ts -->
+    </div>
+  </main>
+
+  <script src="dist/layar.js" defer></script>
+</body>
+</html>
